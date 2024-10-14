@@ -9,7 +9,7 @@ console.log("hello world");
 // easy to start 
 let firstName="sudhanshu"
 firstName=34;
-
+age=34
 // js is single threaded->uses one core of machine at a time
 // can do context switching between tasks but cannot run two programs at the same time
 // bad language for scalable system
