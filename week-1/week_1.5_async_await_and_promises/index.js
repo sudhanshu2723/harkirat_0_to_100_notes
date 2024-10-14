@@ -53,18 +53,37 @@
 //     console.log(data)
 // }
 
-function asyncPromise(){
-    const p=new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve("hi there")
-        },1000)
+// function asyncPromise(){
+//     const p=new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve("hi there")
+//         },1000)
+//     })
+//     return p;
+// }
+
+// async function main(){
+//     let value=await asyncPromise();
+//     console.log(value)
+// }
+
+// main()
+
+
+const fs=require('fs')
+
+function readFile(){
+    const prom=new Promise((resolve)=>{
+        fs.readFile("a.txt","utf-8",(err,data)=>{
+            resolve(data);
+       })
     })
-    return p;
+    return prom
+   
 }
 
-async function main(){
-    let value=await asyncPromise();
-    console.log(value)
-}
+readFile().then((data)=>{
+    console.log("hello")
+    console.log(data)
 
-main()
+})
