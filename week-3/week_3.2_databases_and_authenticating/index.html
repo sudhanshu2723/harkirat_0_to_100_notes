@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="handleButtonClick()">Click Me</button>
+    <div id="getData"></div>
+    
+</body>
+<script>
+
+    function handleButtonClick(){
+        fetch("https://fakerapi.it/api/v1/persons")
+        .then(async(response)=>{
+            const res=await response.json();
+            console.log(res.data)
+            document.getElementById('getData').innerHTML=JSON.stringify(res.data)
+            return res.data;
+        })
+    }
+</script>
+</html>
