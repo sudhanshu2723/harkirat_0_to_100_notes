@@ -73,6 +73,10 @@ function CountRenderer(){
   )
 }
 
+// context api makes the rendering less performant 
+// it re-renders all the components when its state variable is changed and changes all the components which are inside context provider even if it uses or does not uses the cotext variable
+// it just makes code easy to view-> thus we use recoil
+
 function Button(){
   const {setCount}=useContext(CountContext)
   return (
