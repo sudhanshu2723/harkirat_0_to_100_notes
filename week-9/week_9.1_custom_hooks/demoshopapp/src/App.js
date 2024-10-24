@@ -109,7 +109,9 @@ function App() {
   return (
  
    <>
-    {findIfonline ? (<div>online</div>)  : (<div>offline</div>)}
+    {findIfonline ?
+    // 
+    (<div>online</div>)  : (<div>offline</div>)}
    </>
   );
 }
