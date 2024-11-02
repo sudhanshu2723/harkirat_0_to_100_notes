@@ -6,6 +6,11 @@ const PORT=3000;
 // app.use() will be called when a reoute is called every time
 app.use(express.json())
 
+
+
+let oldDate=new Date();
+let initialTime=oldDate.getTime();
+
 const userschema=z.object({
     username:z.string().min(4).max(15),
     password:z.string().min(4).max(15)
@@ -41,6 +46,9 @@ next()
 // here userMiddleware will be called for the get and the pos t request both
 app.use(userMiddelware);
 app.post('/dashboard',calculateRequests, (req,res)=>{
+    let newDate=new Date();
+let newTime=newDate.getTime();
+console.log(newTime-initialTime)
     return res.json({
         msg:"correct username and password"
     })
@@ -55,7 +63,7 @@ app.get("/health-checkup",(req,res)=>{
 })
 
 // global catches
-// handles all the catches which are given bt all the routes above it
+// handles all the catches which are given by all the routes above it
 app.use((err,req,res,next)=>{
     return res.json({
         msg:"something wrong occcured",
@@ -63,6 +71,10 @@ app.use((err,req,res,next)=>{
     })
 })
 
+
+
 app.listen(PORT,()=>{
     console.log(`Listening to port ${PORT}`)
 })
+
+

@@ -33,7 +33,7 @@ app.get("/todos",async(req,res)=>{
         todos:todoData
       })
 })
-
+    
 app.put("/completed",async(req,res)=>{
      const {id}=req.body;
      const isIdCorrect=updateSchema.safeParse(id);
