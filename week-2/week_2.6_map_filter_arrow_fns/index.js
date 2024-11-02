@@ -23,6 +23,8 @@ console.log(arr2)
 let evenArr=arr.filter((value)=>{
     // condition
     return value%2==0
+
 })
+
 
 console.log(evenArr)
