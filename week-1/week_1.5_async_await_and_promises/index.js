@@ -24,26 +24,26 @@
 
 // console.log("after file reading")
 
-// const fs=require("fs")
+const fs=require("fs")
 
-// function kiratReadFile(){
-//     const prom=new Promise((resolve)=>{
-//          fs.readFile("a.txt","utf-8",(err,data)=>{
-//             resolve(data);
-//         })
-//     })
-//     return prom;
-// }
+function kiratReadFile(){
+    const prom=new Promise((resolve)=>{
+         fs.readFile("a.txt","utf-8",(err,data)=>{
+            resolve(data);
+        })
+    })
+    return prom;
+}
 
-// let a=kiratReadFile()
-// console.log(a)
-// a.then((data)=>{
-//     console.log("a "+data)
-// })
+let a=kiratReadFile()
+console.log(a)
+a.then((data)=>{
+    console.log("a "+data)
+})
 
-// kiratReadFile().then((data)=>{
-//   console.log(data);
-// })
+kiratReadFile().then((data)=>{
+  console.log(data);
+})
 
 // // async await
 // // async and promises uses callback->(setTimeout,setInterval these type of functions under the hood) under the hood
@@ -70,7 +70,7 @@
 // main()
 
 
-const fs=require('fs')
+// const fs=require('fs')
 
 function readFile(){
     const prom=new Promise((resolve)=>{
