@@ -8,7 +8,7 @@ console.log(str.lastIndexOf("pandey"))
 
 // {startIndex,endIndex-1}->{3 to 4}-> will be printed
 console.log(str.slice(3,5));
-// {startIndex,startIndex+length}->{4 to 10}->will be printed
+// {startIndex,startIndex+length-1}->{4 to 9}->will be printed
 console.log(str.substr(4,6));
 
 // both substr and slice will work same if we start from 0 index

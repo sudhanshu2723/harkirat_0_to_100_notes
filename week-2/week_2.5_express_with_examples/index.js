@@ -106,6 +106,7 @@ app.get("/check-kidneys",(req,res)=>{
 app.post('/add-kidney',(req,res)=>{
     const{kidneyId,firstName,kidneyStatus}=req.body;
      let updatedUserDetails=[]
+     let isUserFound=false
     usersData.map((userData)=>{
         if(userData.firstName===firstName){
             userData.kidneys.push({
@@ -113,12 +114,20 @@ app.post('/add-kidney',(req,res)=>{
                 kidneyStatus:kidneyStatus
             })
           updatedUserDetails.push(userData)
+          isUserFound=true;
         }
     })
+    if(isUserFound){
     return res.json({
         userData:updatedUserDetails,
-        msg:"no use found with the given details"
+        msg:"details updated"
     })
+}
+    else{
+        return res.json({
+            msg:"no user found with given details"
+        })
+    }
 })
 
 // user can replace a kidney and make it healthy

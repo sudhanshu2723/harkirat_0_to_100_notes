@@ -3,6 +3,7 @@ const bodyParser=require("body-parser")
 
 const app=express();
 const PORT=3000;
+// helps to use req.body in case of POST request , because express does not parses the body request on its own
 app.use(bodyParser.json())
 
 

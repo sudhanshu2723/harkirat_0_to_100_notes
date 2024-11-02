@@ -138,7 +138,7 @@ function displayResult(result){
  },1000)
 
 
-//  setTimeout->calls the function after a given interval
+//  setTimeout->calls the function one time after a given interval
 setTimeout(()=>{
     console.log("setTimeout is called")
 },1000)
@@ -147,9 +147,10 @@ setTimeout(()=>{
 // create a counter in js that counts from 30 to 0
 let counter=30;
 
-setInterval(()=>{
+let counterInterval=setInterval(()=>{
     console.log("couter value is "+counter);
     counter--;
+    if(counter==0)clearInterval(counterInterval);
 },1000)
 
 // Q) calculate the time it takes between a setTimeout and inner function actually running\
@@ -180,6 +181,28 @@ function calculateTime(){
     console.log(hr+" : "+min+" : "+sec)
 }
 
-setInterval(()=>{
-    calculateTime()
-},1)
+// setInterval(()=>{
+//     calculateTime()
+// },1)
+
+function downloadData(callback){
+    setTimeout(()=>{
+        console.log("data downloaded")
+        callback("downloaded data")
+    },1000)
+}
+
+function porcessdata(data,callback){
+    setTimeout(()=>{
+        setTimeout(()=>{
+            console.log("data processed");
+            callback("Processed"+data)
+        })
+    })
+}
+
+downloadData((downloadedData)=>{
+    porcessdata(downloadedData,(porcessddata)=>{
+        console.log("Final result "+porcessddata)
+    })
+})
